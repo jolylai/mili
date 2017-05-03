@@ -1,10 +1,10 @@
-import React,{ Component } from 'react'
+import React,{ Component } from 'react';
 import { Menu,Icon } from 'antd'
 // import { Link } from 'react-router'
 
 const MenuItemGroup = Menu.ItemGroup;
 
-class SiderComponent extends Component{
+class MovieFilter extends Component{
   render(){
     return (
       <div className="sider">
@@ -59,4 +59,4 @@ class SiderComponent extends Component{
     )
   }
 }
-export default SiderComponent;
+export default MovieFilter;

@@ -1,6 +1,6 @@
 import React,{ Component,PropTypes } from 'react'
 import TopSearchBar from '../components/TopSearchBar'
-import SiderComponent from  '../components/SiderComponent'
+import SiderComponent from  '../components/MovieFilter'
 import { Layout } from 'antd';
 const { Header, Footer, Sider, Content } = Layout;
 
