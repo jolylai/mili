@@ -42,16 +42,21 @@ const initState = {
 
 export default function movie(state = initState, action) {
   switch (action.type) {
-    case 'REQUEST_MOVIE':
-      try {
-        action.movie.download_links = JSON.parse(action.movie.download_links);
-      }
-      catch (e) {
-        console.log("解析下载链接失败");
-      }
-      return Object.assign({}, state, {
-        viewing: action.movie
+    case 'REQUEST_MOVIE_YEARS':
+      return Object.assign({},state,{
+        years: action.years
       });
+    case 'REQUEST_MOVIE_CATEGORIES':
+      return Object.assign({},state,{
+        categories: action.categories
+      });
+    case 'REQUEST_MOVIE_BANNER':
+      return Object.assign({},state,{
+        bannerMovies: {
+          total: action.bannerMovies.total,
+          movies: action.bannerMovies.list
+        }
+      })
     default:
       return state
   }

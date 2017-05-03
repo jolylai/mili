@@ -1,8 +1,9 @@
 import React,{ Component,PropTypes } from 'react'
 import TopSearchBar from '../components/TopSearchBar'
-import SiderComponent from  '../components/MovieFilter'
+import MovieFilter from  '../components/MovieFilter'
 import { Layout } from 'antd';
-import fetch from "isomorphic-fetch"
+import { connect } from 'react-redux'
+import { initMovieYearsAndCategories } from '../actions/MovieActions'
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -10,18 +11,11 @@ import '../styles/common.sass'
 
 class App extends Component{
   componentDidMount(){
-    fetch('/movieyears')
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((ex) => {
-        console.log(ex);
-      });
+    const { dispatch } = this.props;
+    dispatch(initMovieYearsAndCategories());
   }
   render(){
+
     return (
       <Layout className="common">
         <Header className="header">
@@ -29,10 +23,10 @@ class App extends Component{
         </Header>
         <Layout className="sider-content">
           <Sider className="sider">
-            <SiderComponent/>
+            <MovieFilter {...this.props}/>
           </Sider>
           <Content className="content">
-            content
+            { this.props.children }
           </Content>
         </Layout>
         <Footer>
@@ -50,4 +44,16 @@ class App extends Component{
     )
   }
 }
-export default App;
+
+App.PropTypes = {
+  movie: PropTypes.object.isRequired
+};
+
+const mapStateToProps = (state) => {
+  return {
+    years: state.movie.years,
+    categories: state.movie.categories
+  }
+};
+
+export default connect(mapStateToProps)(App);

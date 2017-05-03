@@ -29,10 +29,20 @@ module.exports = {
     inline: true,
     stats: { colors: true },
     proxy: {
-      //	/categories -->http://pod.gf.com.cn/api/information/podcastserver/1.0.0/categories
+      //	/categories -->http://51kanmeiju.com/api/movieyears
       '/movieyears': {
         target: 'http://51kanmeiju.com/api',
         pathRewrite: {'^/': '/'},
+        changeOrigin: true
+      },
+      '/category': {
+        target: 'http://51kanmeiju.com/api',
+        pathRewrite: {'^/': '/'},
+        changeOrigin: true
+      },
+      '/HomeBannerMovie': {
+        target: 'http://51kanmeiju.com/api',
+        pathRewrite: {'^/HomeBannerMovie': '/movielast?limit=10'},
         changeOrigin: true
       }
     }
