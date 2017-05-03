@@ -25,7 +25,17 @@ module.exports = {
     hot: true,
     port: defaultSettings.port,
     publicPath: defaultSettings.publicPath,
-    noInfo: false
+    noInfo: false,
+    inline: true,
+    stats: { colors: true },
+    proxy: {
+      //	/categories -->http://pod.gf.com.cn/api/information/podcastserver/1.0.0/categories
+      '/movieyears': {
+        target: 'http://51kanmeiju.com/api',
+        pathRewrite: {'^/': '/'},
+        changeOrigin: true
+      }
+    }
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],

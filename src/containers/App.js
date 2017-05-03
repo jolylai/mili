@@ -2,11 +2,25 @@ import React,{ Component,PropTypes } from 'react'
 import TopSearchBar from '../components/TopSearchBar'
 import SiderComponent from  '../components/SiderComponent'
 import { Layout } from 'antd';
+import fetch from "isomorphic-fetch"
+
 const { Header, Footer, Sider, Content } = Layout;
 
 import '../styles/common.sass'
 
 class App extends Component{
+  componentDidMount(){
+    fetch('/movieyears')
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((ex) => {
+        console.log(ex);
+      });
+  }
   render(){
     return (
       <Layout className="common">
