@@ -53,4 +53,19 @@ export const loadHomeBannerMovies = () => {
         })
       })
   }
+};
+// 获取热门电影
+export const loadHotMovies = () => {
+  return dispatch => {
+    fetch('/hotMovies')
+      .then((res) => {
+        return res.json()
+      })
+      .then((json) => {
+        dispatch({
+          type: 'REQUEST_MOVIE_HOT',
+          hots: json.data
+        })
+      })
+  }
 }

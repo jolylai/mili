@@ -56,7 +56,14 @@ export default function movie(state = initState, action) {
           total: action.bannerMovies.total,
           movies: action.bannerMovies.list
         }
-      })
+      });
+    case 'REQUEST_MOVIE_HOT':
+      return Object.assign({},state,{
+        hots: {
+          total: action.hots.total,
+          movies: action.hots.list
+        }
+    })
     default:
       return state
   }

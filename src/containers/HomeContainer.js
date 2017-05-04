@@ -1,38 +1,36 @@
 import React,{ Component,PropTypes } from 'react'
 import { Carousel } from 'antd';
 import { connect } from 'react-redux'
-import { loadHomeBannerMovies } from '../actions/MovieActions'
+import { loadHomeBannerMovies,loadHotMovies } from '../actions/MovieActions'
+import MovieSlider from '../components/MovieSlider'
 
 class HomeContainer extends Component{
   componentDidMount(){
     const { dispatch } = this.props;
     dispatch(loadHomeBannerMovies());
+    dispatch(loadHotMovies());
   }
   render(){
-    // let movies = this.props.bannerMovies.movies;
-    // let banner = [];
-    // movies.forEach((movie) => {
-    //   banner.push(
-    //     <div>
-    //       <img src={ 'http://51kanmeiju.com' + movie.poster }/>
-    //     </div>
-    //   )
-    // })
+    const { hots } = this.props;
+    console.log(hots)
     return (
       <div className="content">
         <h1 style={{color: '#fff'}}>haha </h1>
+        <MovieSlider title="热门美剧" allLink="/views/hot" movies={ hots.movies }/>
       </div>
     )
   }
 }
 HomeContainer.PropTypes = {
-  bannerMovies: PropTypes.object.isRequired
+  bannerMovies: PropTypes.object.isRequired,
+  hots: PropTypes.object.isRequired
 };
 const mapStateToProps = (state) => {
   const { movie } = state;
-  const { bannerMovies } = movie;
+  const { bannerMovies,hots } = movie;
   return {
-    bannerMovies
+    bannerMovies,
+    hots
   }
 };
 
