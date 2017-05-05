@@ -68,4 +68,19 @@ export const loadHotMovies = () => {
         })
       })
   }
+};
+// 获取智能推荐
+export const loadHomePromotionMovies = () => {
+  return dispatch => {
+    fetch('/moviepromotion')
+    .then((res) => {
+      return res.json()
+    })
+    .then((json) => {
+      dispatch({
+        type: 'REQUEST_MOVIE_PROMOTION',
+        promotions: json.data
+      })
+    })
+  }
 }

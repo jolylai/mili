@@ -1,7 +1,7 @@
 import React,{ Component,PropTypes } from 'react'
 import { Carousel } from 'antd';
 import { connect } from 'react-redux'
-import { loadHomeBannerMovies,loadHotMovies } from '../actions/MovieActions'
+import { loadHomeBannerMovies,loadHotMovies,loadHomePromotionMovies } from '../actions/MovieActions'
 import MovieSlider from '../components/MovieSlider'
 
 class HomeContainer extends Component{
@@ -9,14 +9,15 @@ class HomeContainer extends Component{
     const { dispatch } = this.props;
     dispatch(loadHomeBannerMovies());
     dispatch(loadHotMovies());
+    dispatch(loadHomePromotionMovies());
   }
   render(){
-    const { hots } = this.props;
-    console.log(hots)
+    const { hots,bannerMovies,promotions } = this.props;
     return (
       <div className="content">
-        <h1 style={{color: '#fff'}}>haha </h1>
-        <MovieSlider title="热门美剧" allLink="/views/hot" movies={ hots.movies }/>
+        <MovieSlider title="热门美剧" allLink="/views/hot" sliderItems={ hots.movies }/>
+        <MovieSlider title="最新更新" allLink="/views/newest" sliderItems = { bannerMovies.movies }/>
+        <MovieSlider title="智能推荐" sliderItems = { promotions.movies }/>
       </div>
     )
   }
@@ -27,10 +28,11 @@ HomeContainer.PropTypes = {
 };
 const mapStateToProps = (state) => {
   const { movie } = state;
-  const { bannerMovies,hots } = movie;
+  const { bannerMovies,hots,promotions } = movie;
   return {
     bannerMovies,
-    hots
+    hots,
+    promotions
   }
 };
 

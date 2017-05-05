@@ -1,5 +1,6 @@
 import React,{ Component,PropTypes } from 'react'
-import { Rate } from 'antd'
+import { Icon } from 'antd'
+import { Link } from 'react-router'
 
 class MovieItem extends Component{
   render(){
@@ -7,13 +8,15 @@ class MovieItem extends Component{
     return (
       <div className="movie-item">
         <div className="movie-poster">
-          <img src="http://51kanmeiju.com/media/ftp/2016/0225/b9d8855658f25099c102e15c65d5535e.jpg"/>
+          <Link to={ 'movie/' + movie.id }>
+            <img src={"http://51kanmeiju.com" + movie.poster}/>
+          </Link>
         </div>
         <div className="movie-rating">
-          <Rate value={ 4 }/>
+          <Icon type="star" />&nbsp;&nbsp;&nbsp;&nbsp;{ movie.hot_number }
         </div>
-        <span>{ }</span>
-        <span>{ }</span>
+        <h3>{ movie.name }</h3>
+        <span>{ movie.from_year }</span>
       </div>
     )
   }

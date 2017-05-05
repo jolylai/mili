@@ -63,7 +63,14 @@ export default function movie(state = initState, action) {
           total: action.hots.total,
           movies: action.hots.list
         }
-    })
+    });
+    case 'REQUEST_MOVIE_PROMOTION':
+          return Object.assign({},state,{
+            promotions:{
+              total: action.promotions.total,
+              movies: action.promotions.list
+            }
+          });
     default:
       return state
   }
