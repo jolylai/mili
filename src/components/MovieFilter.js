@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 
 
 const MenuItemGroup = Menu.ItemGroup;
+const SubMenu = Menu.SubMenu;
 
 class MovieFilter extends Component{
   render(){
@@ -30,7 +31,7 @@ class MovieFilter extends Component{
     })
     return (
       <div className="sider">
-        <Menu theme="dark">
+        <Menu theme="dark" mode="inline">
           <MenuItemGroup key="G1" title="菜单导航">
             <Menu.Item key="i1">
               <Link to="/">
@@ -56,12 +57,13 @@ class MovieFilter extends Component{
           <MenuItemGroup key="G2" title="美剧类目">
             { categoriesLink }
           </MenuItemGroup>
-          <MenuItemGroup key="G3" title="发布年份">
+          <SubMenu key="G3" title="发布年份">
             { yearsLink }
-          </MenuItemGroup>
+          </SubMenu>
         </Menu>
       </div>
     )
   }
 }
+
 export default MovieFilter;

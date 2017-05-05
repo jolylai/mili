@@ -47,7 +47,7 @@ module.exports = {
       },
       '/hotMovies': {
         target: 'http://51kanmeiju.com/api',
-        pathRewrite: {'^/hotMovies': '/moviehot?limit=10&page=1'},
+        pathRewrite: {'^/hotMovies': '/moviehot?limit=20&page=1'},
         changeOrigin: true
       },
       '/moviepromotion': {
