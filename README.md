@@ -10,7 +10,7 @@
 * antd[https://ant.design/components/icon-cn/](https://ant.design/components/icon-cn/)
 
 ## 界面预览
-![首页](readme_img/home.png)
+![首页](https://github.com/jolylai/mili/blob/master/readme_img/home.png)
 
 ## Build
 ```
