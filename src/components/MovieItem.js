@@ -8,8 +8,8 @@ class MovieItem extends Component{
     return (
       <div className="movie-item">
         <div className="movie-poster">
-          <Link to={ 'movie/' + movie.id }>
-            <img src={"http://51kanmeiju.com" + movie.poster}/>
+          <Link to={ '/movie/' + movie.id }>
+            <img src={ "http://51kanmeiju.com" + movie.poster }/>
           </Link>
         </div>
         <div className="movie-rating">

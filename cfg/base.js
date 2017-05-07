@@ -30,31 +30,46 @@ module.exports = {
     stats: { colors: true },
     proxy: {
       //	/categories -->http://51kanmeiju.com/api/movieyears
-      '/movieyears': {
-        target: 'http://51kanmeiju.com/api',
+      '/api/*': {
+        target: 'http://51kanmeiju.com',
         pathRewrite: {'^/': '/'},
         changeOrigin: true
       },
-      '/category': {
-        target: 'http://51kanmeiju.com/api',
-        pathRewrite: {'^/': '/'},
-        changeOrigin: true
-      },
-      '/HomeBannerMovie': {
-        target: 'http://51kanmeiju.com/api',
-        pathRewrite: {'^/HomeBannerMovie': '/movielast?limit=10'},
-        changeOrigin: true
-      },
-      '/hotMovies': {
-        target: 'http://51kanmeiju.com/api',
-        pathRewrite: {'^/hotMovies': '/moviehot?limit=20&page=1'},
-        changeOrigin: true
-      },
-      '/moviepromotion': {
-        target: 'http://51kanmeiju.com/api',
-        pathRewrite: {'^/': '/moviepromotion?limit=10'},
-        changeOrigin: true
-      }
+      // '/category': {
+      //   target: 'http://51kanmeiju.com/api',
+      //   pathRewrite: {'^/': '/'},
+      //   changeOrigin: true
+      // },
+      // '/category/*': {
+      //   target: 'http://51kanmeiju.com/api',
+      //   pathRewrite: {'^/': '/'},
+      //   changeOrigin: true
+      // },
+      // '/HomeBannerMovie': {
+      //   target: 'http://51kanmeiju.com/api',
+      //   pathRewrite: {'^/HomeBannerMovie': '/movielast?limit=10'},
+      //   changeOrigin: true
+      // },
+      // '/hotMovies': {
+      //   target: 'http://51kanmeiju.com/api',
+      //   pathRewrite: {'^/hotMovies': '/moviehot?limit=20&page=1'},
+      //   changeOrigin: true
+      // },
+      // '/moviepromotion': {
+      //   target: 'http://51kanmeiju.com/api',
+      //   pathRewrite: {'^/': '/moviepromotion?limit=10'},
+      //   changeOrigin: true
+      // },
+      // '/lastMovies': {
+      //   target: 'http://51kanmeiju.com/api',
+      //   pathRewrite: {'^/lastMovies': '/movielast?limit=20&page=1'},
+      //   changeOrigin: true
+      // },
+      // '/categorymovies/*': {
+      //   target: 'http://51kanmeiju.com/api',
+      //   pathRewrite: {'^/': '/'},
+      //   changeOrigin: true
+      // }
     }
   },
   resolve: {

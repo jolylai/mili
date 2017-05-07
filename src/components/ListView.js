@@ -6,8 +6,7 @@ import '../styles/listView.sass'
 class ListView extends Component{
   render(){
     const { title,movies } =this.props;
-    console.log(movies)
-    let list = []
+    let list = [];
     movies.forEach((movie) => {
       list.push(
         <article key={ movie.id}>

@@ -1,5 +1,4 @@
 import React,{ Component,PropTypes } from 'react'
-import { Carousel } from 'antd';
 import { connect } from 'react-redux'
 import { loadHomeBannerMovies,loadHotMovies,loadHomePromotionMovies } from '../actions/MovieActions'
 import MovieSlider from '../components/MovieSlider'
