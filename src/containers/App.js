@@ -15,7 +15,6 @@ class App extends Component{
     dispatch(initMovieYearsAndCategories());
   }
   render(){
-
     return (
       <Layout className="common">
         <Header className="header">
@@ -29,15 +28,10 @@ class App extends Component{
             { this.props.children }
           </Content>
         </Layout>
-        <Footer>
-          <ul>
-            <li><a>关于</a></li>
-            <li><a>网站升级日志</a></li>
-            <li><a>免责声明</a></li>
-          </ul>
+        <Footer style={{ textAlign: 'center',color: '#fff'}}>
           <div>
-            Copyright @ Jolylai
-            <a>联系我</a>
+            Copyright @ Jolylai&nbsp;&nbsp;&nbsp;
+            <a>联系我 </a>
           </div>
         </Footer>
       </Layout>

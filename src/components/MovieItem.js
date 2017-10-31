@@ -25,4 +25,5 @@ class MovieItem extends Component{
 MovieItem.PropTypes = {
   movie: PropTypes.object.isRequired
 };
+
 export default MovieItem;
